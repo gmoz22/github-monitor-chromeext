@@ -1,7 +1,7 @@
-github-notifs-chromeext
+github-monitor-chromeext
 =======================
 
-Chrome extension for GitHub notifications
+GitHub Monitor: get notifications for activity on your public and private repositories.
 
 
 Usage:
