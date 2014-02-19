@@ -1,0 +1,66 @@
+
+html, body {
+    background: #eeeeee;
+    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-size: 0.9em;
+}
+
+
+fieldset {
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+}
+
+legend {
+    position: absolute;
+    top: -14px;
+    left: -14px;
+    height: 14px;
+    padding: 5px;
+    border: 1px solid #dddddd;
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+    background: #ffffff;
+    font-size: 115%;
+}
+
+label {
+    font-size: 90%;
+}
+
+input.access_token {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 115%;
+    text-align: center;
+}
+
+span.comment {
+    font-size: 80%;
+    font-style: italic;
+}
+
+button {
+    padding: 7px;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+footer {
+    border-top: 1px dashed #cccccc;
+    text-align: center;
+    font-size: 80%;
+    color: #666666;
+    padding-top: 7px;
+}
+
+#app_name {
+    font-weight: bold;
+}
+#app_desc {
+    font-style: italic;
+}
+#author {
+    font-weight: bold;
+}

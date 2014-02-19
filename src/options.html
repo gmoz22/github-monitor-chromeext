@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="options.css" />
+</head>
+<body>
+    <fieldset>
+        <legend>GitHub Settings</legend>
+        <label for="access_token">GitHub Personal Access Token:
+            <input id="access_token" class="access_token" size="44" type="text" /><br/>
+            <span class="comment">Generate your <b>Personal Access Token</b> at <a href="https://github.com/settings/applications" target="_blank">https://github.com/settings/applications</a>.</span>
+        </label><br/>
+        <br/>
+        <button id="saveOptions">Save Access token</button> &nbsp; <span id="status"></span>
+    </fieldset>
+    <fieldset>
+        <legend>Reset Notifications</legend>
+        <label for="resetNotifs">Reset to view the last <span id="maxNotifs"></span> notifications.<br/>
+            <br/>
+            <button id="resetNotifs" name="resetNotifs" type="text" />Reset Notifications</button>
+        </label>
+    </fieldset>
+    <footer>
+        <span id="app_name"></span> by <span id="author"></span><br/>
+        <span id="app_desc"></span>
+    </footer>
+
+    <script src="options.js"></script>
+</body>
+</html>
