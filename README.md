@@ -1,5 +1,5 @@
 github-monitor-chromeext
-=======================
+========================
 
 GitHub Monitor: get notifications for activity on your public and private repositories.
 

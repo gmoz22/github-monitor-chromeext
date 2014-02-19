@@ -14,11 +14,11 @@ function save_options() {
     chrome.storage.sync.set(saveData, function() {
 
         // Update status to let user know options were saved
-        document.getElementById("status").innerHTML = "Saved!";
+        document.getElementById("set_token_status").innerHTML = "Saved!";
 
-        setTimeout(function() {
+        window.setTimeout(function() {
 
-            document.getElementById("status").innerHTML = "";
+            document.getElementById("set_token_status").innerHTML = "";
             bgPage.app.start();
             window.close();
 
@@ -44,20 +44,32 @@ function restore_options() {
  */
 function reset_notifications() {
 
-    bgPage.app.resetNotifications(function () {
+    if (bgPage.app.access_token) {
 
-        bgPage.app.clearNotifications(function () {
+        bgPage.app.resetNotifications(function () {
 
-            bgPage.app.getEvents();
-            window.close();
+            bgPage.app.clearNotifications(function () {
+
+                bgPage.app.getEvents();
+                window.close();
+            });
         });
-    });
 
-    chrome.storage.sync.get(function(storageItems) {
+        chrome.storage.sync.get(function(storageItems) {
 
-        if (!storageItems.access_token) return;
-        document.getElementById('access_token').value   = storageItems.access_token;
-    });
+            if (!storageItems.access_token) return;
+            document.getElementById('access_token').value   = storageItems.access_token;
+        });
+
+    } else {
+
+        window.setTimeout(function() {
+
+            document.getElementById("reset_notifs_status").innerHTML = "Please set an Access Token";
+            document.getElementById("access_token").focus();
+
+        }, 2500);
+    }
 }
 
 function start_options() {
