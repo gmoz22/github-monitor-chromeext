@@ -5,7 +5,7 @@ var config  = {
     github_endpoints_url    : "https://api.github.com/", // GitHub endpoints
     updateInterval          : 60, // in seconds
     updateMaxInterval       : 15, // not more often than every X seconds
-    maxNotifs               : 5 // max notifs at a time, also used for notifs reset
+    maxNotifs               : 3 // max notifs at a time, also used for notifs reset
 };
 
 var app = {
@@ -119,6 +119,7 @@ var app = {
 
 
                             var thisEvent   = events[x];
+                            console.log('thisEvent: %o', thisEvent);
                             if (thisEvent && thisEvent.created_at) {
 
                                 var thisEventTimestamp  = new Date(thisEvent.created_at);
@@ -126,6 +127,7 @@ var app = {
                                 last_timestamp  = thisEventTimestamp    = thisEventTimestamp.getTime();
 
                                 if (typeof thisEventTimestamp != 'undefined' && thisEventTimestamp > storage.last_event_date) {
+
 
                                     if (thisEvent.type == 'PushEvent') {
 
@@ -138,7 +140,7 @@ var app = {
                                             var contextMessage  = thisEventDate;
                                             var url = config.github_url + thisEvent.repo.name + '/commit/' + thisEvent.payload.commits[y].sha; // thisEvent.payload.commits[y].url;
 
-                                            app.showNotification.apply(this, [thisEvent.id, title, message, contextMessage, thisEventTimestamp, url]);
+                                            app.showNotification.apply(this, [thisEvent.payload.commits[y].sha, title, message, contextMessage, thisEventTimestamp, url]);
                                             pushedNotifs++;
                                         }
 
